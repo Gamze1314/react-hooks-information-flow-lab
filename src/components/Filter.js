@@ -1,4 +1,3 @@
-// the child of Shopping List 
 import React from 'react'
 
 
@@ -17,3 +16,10 @@ function Filter( { onCategoryChange }) {
 
 export default Filter
 
+// //App
+// ├── Header
+// └── ShoppingList
+//     ├── Filter
+//     ├── Item
+//     ├── Item
+//     └── Item

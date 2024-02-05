@@ -10,19 +10,21 @@ function ShoppingList({ items }) {
     setSelectedCategory(event.target.value); 
   }
 
+  // if selectedCategory is all or matching category items being displayed
+  // Line 16 will work even if you swap the conditions.
   const itemsToDisplay = items.filter((item) => {
-    if (selectedCategory === "All") return true;
-
-    return item.category === selectedCategory;
+    return selectedCategory === "All" || item.category === selectedCategory
   });
+
+  const mappedItems = itemsToDisplay.map((item) => (
+          <Item key={item.id} name={item.name} category={item.category} />
+        ))
 
   return (
     <div className="ShoppingList" >
       <Filter onCategoryChange={(handleCategoryChange)}/>
       <ul className="Items">
-        {itemsToDisplay.map((item) => (
-          <Item key={item.id} name={item.name} category={item.category} />
-        ))}
+        {mappedItems}
       </ul>
     </div>
   );
